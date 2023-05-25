@@ -1,10 +1,15 @@
 <h1>Lists#show</h1>
-<p><%= @list.name %></p>
-<br>
-<%= link_to "Back to list", lists_path(@lists)%>
-<br>
-<ul class="list-group">
-  <% @list.bookmarks.each do |bookmark| %>
-    <li class="list-group-item"><%= bookmark.comment %></li>
-  <% end %>
-</ul>
+  <p><%= @list.name %></p>
+  <br>
+  <%= link_to "Add a new list", new_list_path(@lists)%>
+  <br>
+  <%= link_to "Back to list", lists_path(@lists)%>
+  <br>
+    <ul class="list-group">
+      <% @list.bookmarks.each do |bookmark| %>
+        <li class="list-group-item"><%= bookmark.comment %></li>
+        <%= link_to "Delete",
+          bookmark_path(bookmark), class:'text-danger fw-bold',
+          data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      <% end %>
+    </ul>
