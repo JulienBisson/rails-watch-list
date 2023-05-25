@@ -1,7 +1,12 @@
 <h1>Lists#show</h1>
   <p><%= @list.name %></p>
   <br>
-  <%= link_to "Add a new list", new_list_path(@lists)%>
+  <p><strong>Bookmark</strong></p>
+<%= simple_form_for [@list, @bookmark] do |f| %>
+  <%= f.input :comment %>
+  <%= f.association :movie %>
+  <%= f.button :submit %>
+<% end %>
   <br>
   <%= link_to "Back to list", lists_path(@lists)%>
   <br>

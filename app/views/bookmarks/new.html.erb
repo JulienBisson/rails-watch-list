@@ -1,7 +1,2 @@
-<h1>Bookmarks#new</h1>
-
-<%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.input :comment %>
-  <%= f.association :movie %>
-  <%= f.button :submit %>
-<% end %>
+<%= render "form", restaurant: @restaurant %>
+<%= link_to "Back to list of restaurants", restaurants_path(@restaurants)%>
