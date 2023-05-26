@@ -1,4 +1,7 @@
 <h1>Add a new list</h1>
-<%= render "form", list: @list %>
+<%= simple_form_for [@list] do |f| %>
+  <%= f.input :name %>
+  <%= f.button :submit %>
+<% end %>
 <br>
 <%= link_to "Back to homepage", lists_path(@list)%>

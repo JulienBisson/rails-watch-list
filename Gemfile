@@ -3,6 +3,7 @@ source "https://rubygems.org"
 ruby "3.1.2"
 gem "autoprefixer-rails"
 gem "bootsnap", require: false
+gem "cloudinary"
 gem 'faker'
 gem "font-awesome-sass", "~> 6.1"
 gem "jbuilder"

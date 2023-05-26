@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :set_list, only: %i[show]
+  before_action :set_list, only: %i[show create]
 
   def index
     @lists = List.all
@@ -31,6 +31,5 @@ class ListsController < ApplicationController
 
   def list_params
     params.require(:list).permit(:name)
-
   end
 end

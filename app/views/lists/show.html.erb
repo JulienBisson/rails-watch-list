@@ -1,14 +1,30 @@
-<h1>Lists#show</h1>
-  <p><%= @list.name %></p>
-  <br>
-  <p><strong>Bookmark</strong></p>
+<h1><strong>Movies</strong></h1>
+<ul class="list-group">
+  <% @list.movies.each do |movie| %>
+  <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+    <li class="list-group-item">
+      <%= movie.title %>
+    </li>
+    <li class="list-group-item">
+    Rating ⭐️ : <%= movie.rating %>
+    </li>
+    <li class="list-group-item">
+    Comment : <%= bookmark.comment %>
+    </li>
+    <li class="list-group-item list-group-item-img">
+    Poster : <%= image_tag movie.poster_url %>
+    </li>
+    <br>
+  <% end %>
+</ul>
+<p><strong>Bookmark</strong></p>
 <%= simple_form_for [@list, @bookmark] do |f| %>
   <%= f.input :comment %>
   <%= f.association :movie %>
   <%= f.button :submit %>
 <% end %>
   <br>
-  <%= link_to "Back to list", lists_path(@lists)%>
+  <%= link_to "Back to list", lists_path%>
   <br>
     <ul class="list-group">
       <% @list.bookmarks.each do |bookmark| %>

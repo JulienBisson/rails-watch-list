@@ -1,0 +1,21 @@
+body {
+  background-color: #2e3440;
+}
+
+h1 {
+  color: white;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+ul {
+  color : white;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  &:hover {
+    font-weight: bold;
+  }
+}
